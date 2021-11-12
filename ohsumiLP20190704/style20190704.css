@@ -1,0 +1,755 @@
+@charset "utf-8";
+html, body, div, span, applet, object, iframe,
+p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, section, summary,
+time, mark, audio, video {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+}
+h1,h2,h3,h5,h6{
+	font-weight: normal;
+	margin:0;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+display: block;
+}
+ol, ul {
+list-style: none;
+}
+blockquote, q {
+quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+content: '';
+content: none;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+/*=====リセットEND============================*/
+
+/*=====全体適用============================*/
+/*    背景    */
+body{
+	background-image: url(img/halftone.png);
+	font-family: -apple-system, BlinkMacSystemFont,
+	"Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3",
+	Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
+}
+.white{
+	overflow: hidden;
+	background: #fff;
+}
+.beach{
+	background-image: url(img/halftone.png);
+}
+.wave{
+	content: "\A";
+	position: fixed;
+	top: 0;
+	z-index: -10;
+	background-image:url("img/wave.png");
+	background-repeat: no-repeat;
+	background-size:100% auto;
+	height: 100%;
+}
+.tone{
+	background-image: url(img/halftone.png);
+}
+.advice{
+	background: #ffca00;
+}
+/*    画面サイズ    */
+.w100{
+	width: 100%;
+}
+.w48 {
+	width: 48%;
+}
+.pc{
+	width: 960px;
+	margin: 0 auto;
+}
+.flex {
+	display: flex;
+	justify-content: space-between;
+    align-items: center;
+}
+/*    画像クラス    */
+.ribon{
+	width: 70%;
+	margin: 40px 15%;
+}
+.icon{
+	color: #ff931e;
+	padding-right: 4px;
+}
+/*    リンクボタンクラス    */
+.button{
+	display: inline-block;
+	padding: 10px 50px;
+	margin:0 auto 20px;
+	background-color: #ff931e;
+	color: #fff;
+	border-radius: 20px;
+	border: 2px solid #ff931e;
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all .3s;
+    transition: all .3s;	
+}
+.button:hover{
+   background: transparent;
+    color: #ff931e !important;
+}
+/*    フォント関係    */
+h1{
+	font-size: 45px;
+	font-weight: bold;
+}
+p{
+	font-size: 20px;
+}
+a{
+	text-decoration: none;
+}
+.font1{
+	line-height: 180%;
+}
+.font2{
+	font-size: 17px;
+}
+.font3{
+	font-size: 25px;
+	line-height: 200%;
+	font-weight: bold;
+}
+.font4{
+	font-weight: bold;
+	font-size: 20px;
+}
+.orange{
+	color: #ff931e;
+}
+.br:before {
+	content: "\A" ;
+	white-space: pre ;
+}
+.bold{
+	font-weight: bold;
+}
+/*    その他共通設定    */
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+.center{
+	text-align: center;
+}
+.mb30{
+	margin-bottom: 30px;
+}
+.mt30{
+	margin-top: 30px;
+}
+.mbr{
+	margin-bottom: 1em;
+	font-size: 40px;
+	font-weight: normal;
+	line-height: 1.2em;
+}
+.pdt30{
+	padding-top: 30px;
+}
+.pdt50{
+	padding-top: 50px;
+}
+.pdb30{
+	padding-bottom: 30px;
+}
+.pdb50{
+	padding-bottom: 50px;
+}
+.mtop40 {
+	margin-top: 40px;
+}
+/*=====全体適用END============================*/
+/*    新規就農者をサポート    */
+.support{
+	overflow: hidden;
+	position: relative;
+	margin: 50px auto 80px;
+}
+.support h1{
+	color: #534741;
+}
+.town{
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+} 
+.town div{
+	width: 50%;
+}
+.set{
+	position: relative;
+	top: 26%;
+}
+/*    アコーディオンメニュー    */
+.acc_box label{
+	display: block;
+	padding: 10px 20px;
+	font-size: 22px;
+	color: #fff;
+	font-weight: bold;
+	background: #42210b;
+	border-bottom: 1px solid #aaaa88; 
+	cursor: pointer;
+	transition: all 0.5s;
+}
+.acc_box label:before{
+	content: '\f105';
+	font-family: "Font Awesome 5 Free";
+	padding-right: 8px;
+}
+.acc_box input{
+	display: none;
+}
+.acc_box .case{
+	display: block;
+	background: #fff;
+	max-height: 0;
+	padding: 0;
+	overflow: hidden;
+	transition: max-height 1s ease-out;
+}
+.css_acc:checked + label + .case{
+	display: block;
+	max-height: 9999px;
+	/* background-image: url(img/halftone.png); */
+	opacity: 1;
+	transition: max-height 1.5s ease-in;
+}
+.css_acc:checked + label:before{
+	content: '\f107';
+}
+.case_img{
+	width: calc(100% - 60px);
+	padding: 30px;
+}
+.case_box{
+	width: 100%;
+	margin: 0 auto;
+	background-color: #fff;
+	border-radius: 30px;
+	margin-bottom: 50px;
+	padding-bottom: 20px;
+}
+.fruits_box .fruits{
+	left: 50%;
+}
+.fruits_box .fruits.lf60 {
+	left: 66%;
+}
+.fruits{
+    width: 15%;
+    position: relative;
+    left: 77%;
+    top: -10px;
+}
+.fruits.wh15 {
+	width: 10%;
+}
+.case_font_box{
+	width: 80%;
+	margin: auto;
+	margin-top: -140px;
+}
+.case_font_box.mtop160 {
+	margin-top: -110px;
+}
+.case_font_box p {
+	font-size: 19px;
+	line-height: 2.6em;
+}
+/*    アドバイス    */
+.advice_box{
+	overflow: hidden;
+	width: 90%;
+	margin: 0 auto;
+}
+.advice_box .left{
+	width: 20%;
+	text-align: center;
+	padding-bottom: 30px;
+}
+.advice_box .left p{
+	font-size: 17px;
+}
+.circle{
+	border-radius: 50%;
+}
+.advice_box .right{
+	width: 73%;
+	background: #fff;
+	border-radius: 10px;
+	position: relative;
+    bottom: 50px;
+}
+.advice_box .right p{
+	padding: 35px;
+	text-align: justify;
+}
+.sankaku{
+	position: relative;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 30px 50px 30px 0;
+    border-color: transparent #fff transparent transparent;
+    top: 50px;
+    left: 190px;
+}
+/*    南大隅町の就農支援制度    */
+.system{
+	display: flex;
+	justify-content: space-between;
+}
+.system div{
+	width: 30%;
+}
+.system p.orange{
+	color: #ff931e;
+	text-align: center;
+	padding-bottom: 10px;
+}
+.system p.font2{
+	font-size: 17px;
+	padding-bottom: 10px;
+	text-align:justify;
+}
+.system_2{
+	display: flex;
+	justify-content: space-evenly;
+}
+.system_2 div{
+	width: 30%;
+}
+.system_2 p.orange{
+	color: #ff931e;
+	text-align: center;
+	padding-bottom: 10px;
+}
+.system_2 p.font2{
+	font-size: 17px;
+	padding-bottom: 10px;
+	text-align:justify;
+}
+.w100.white.center{
+	padding-bottom: 20px;
+}
+.waterfall{
+	background-color: #fff;
+	background-image: url(img/waterfall.jpg);
+	background-repeat: no-repeat;
+	background-position: 0 20%;
+	background-size: cover;
+	background-attachment: fixed;
+	height: 450px;
+}
+h4.midashi {
+	color: #42210b;
+	font-size: 22px;
+	text-align: center;
+	vertical-align: middle;
+	margin: 0 0 30px;
+}
+h4.midashi i {
+	font-size: 1.5em;
+	margin-right: 6px;
+}
+/*    南大隅町の文化と自然    */
+.spot_font{
+	position: static;
+	z-index: -1;
+	overflow: hidden;
+	background: #fff;
+	padding: 10px;
+	border-radius: 10px;
+}
+.spot_font .right{
+	width: 65%;
+	margin-top: 10px;
+}
+.spot{
+	position: static;
+	z-index: -1;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 70px;
+}
+.spot div{
+	width: 48%;
+	background: #fff;
+}
+.spot div p{
+	padding-top: 15px;
+}
+/*    お問い合わせ    */
+.contact{
+	background: #383838;
+	overflow: hidden;
+}
+.contact .font2{
+	color: #fff;
+}
+/*    footer    */
+.foot{
+	background: #ffca00;
+	overflow: hidden;
+}
+.foot div{
+	margin-bottom: 50px;
+}
+.foot .font1{
+	font-weight: bold;
+}
+/*=============iPad用css====================*/
+@media screen and (max-width: 960px) {
+	/*    画面サイズ    */
+	.pc{
+		width: 95%;
+		margin: 0 2.5%;
+	}
+	/*    フォント関係    */
+	h1{
+	    font-size: 36px;/* !important */
+	    font-weight: bold;
+	}
+	h1.mbr {
+		font-size: 29px;
+	}
+	p{
+		font-size: 20px;
+	}
+	/*   ipad改行    */
+	.ipad::before {
+		content: "\A" ;
+		white-space: pre ;
+	}
+	/*    その他共通設定    */
+	.mb30{
+		margin-bottom: 30px;
+	}
+	.mt30{
+		margin-top: 30px;
+	}
+	.mbr{
+		margin-bottom: 1em;
+		font-size: 2rem;
+	}
+	/*    top    */
+	.support{
+		padding-top: 30px;
+	}
+	/*    プルダウン    */
+	.case_box{
+		width: 100%;
+		margin: 0 auto;
+	}
+	.case_font_box {
+   		margin-top: -14%;
+	}
+	.advice_box{
+		width: 95%;
+	}
+	.advice_box .left{
+		width: 25%;
+	}
+	.advice_box .right{
+		width: 70%;
+	}
+	.advice_box .right p{
+		padding: 30px;
+	}
+	.sankaku{
+		left: 0;
+	    margin-left: 26%;
+	}
+	.case_box .left p{
+		font-size: 16px;
+	}
+	/*    南大隅町の就農支援制度    */
+	.system div{
+		width: 31%;
+	}
+	.system_2 div{
+		width: 31%;
+	}
+	/*    南大隅町の文化と自然    */
+	.waterfall{
+		background-size: cover;
+		height: 400px;
+	}
+	.spot_font.pc{
+		width: 90%;
+		padding: 2.5%;
+		margin: 0 2.5%;
+	}
+	.spot_font .left{
+		width: 34%;
+	}
+	.spot_font .right{
+		width: 63%;
+		margin-top: 0;
+	}
+	.spot.pc{
+		margin-bottom: 50px;
+	}
+	.spot div p{
+		padding: 10px 15px;
+		text-align:justify;
+	}
+	.case_font_box.mtop160 {
+		margin-top: -90px;
+	}
+	.fruits {
+		top: 0;
+	}
+	.fruits_box .fruits.lf60 {
+		left: 70%;
+	}
+}
+@media screen and (max-width: 720px) {
+	.case_font_box {
+		margin-top: -50px;
+	}
+	.case_font_box.mtop160 {
+		margin-top: -35px;
+	}
+	.case_font_box p {
+		font-size: 16px;
+	}
+	.mbr {
+		font-size: 1.7rem;
+	}
+}
+/*=============スマートフォン用css====================*/
+@media screen and (max-width: 500px) {
+	/*    フォント関係    */
+	h1 {
+		font-size: 20px !important;
+		font-weight: bold;
+	}
+	p{
+		font-size: 16px !important;
+		text-align:justify;
+	}
+	.mbr {
+		font-size: 1.5rem;
+	}
+	.font3{
+		text-align: center;
+	}
+	/*    画像関係    */
+	.ribon{
+		width: 90%;
+		margin: 20px 5% 15px;
+	}
+	/*    スマホのみ改行    */
+	.sp::before {
+		content: "\A" ;
+		white-space: pre;
+	}
+	/*    改行取り消し    */
+	.br::before {
+		content: "" ;
+		white-space: nowrap;
+	}
+	.ipad::before {
+		content: "" ;
+		white-space: nowrap;
+	}
+	/*    その他共通設定    */
+	.pdt50{
+		padding-top: 30px;
+	}
+	.pdb50{
+		padding-bottom: 30px;
+	}
+	.left,.right{
+		float: none;
+	}
+	.none{
+		display: none;
+	}
+	/*    TOP    */
+	.support{
+		padding-top: 15px;
+	}
+	.town{
+		display: block;
+	}
+	.town div{
+		width: 100%;
+	}
+	.set{
+		top: 10px;
+	}
+	/*    プルダウン    */
+	.acc_box label{
+		font-size: 20px;
+	}
+	.case_box{
+		width: calc(100% - 40px);
+		padding: 0 20px;
+	}
+	.case_font_box{
+		margin-top: -10%;
+	}
+	/*    アドバイス    */
+	.advice_box .left{
+		width: 50%;
+		margin: 0 25%;
+	}
+	.circle{
+		width: 60%;
+	}
+	.advice_box .left p{
+		text-align: center;
+	}
+	.sankaku{
+		display: none;
+	}
+	.advice_box .right{
+		margin: 7% auto -7%;
+		width: 100%;
+	}
+	.advice_box .right p{
+		padding: 15px;
+	}
+	/*    南大隅町の就農支援制度    */
+	.system{
+		display: block;
+	}
+	.system div{
+		width: 90%;
+		padding: 0 0 15px;
+		margin: 0 5% 20px;
+		border-bottom: 1px solid #ddd; 
+	}
+	.system div:last-child{border: none;}
+	p.orange{
+		font-weight: bold;
+	}
+	.system_2{
+		display: block;
+	}
+	.system_2 div{
+		width: 90%;
+		padding: 0 0 15px;
+		margin: 0 5% 20px;
+		border-bottom: 1px solid #ddd; 
+	}
+	.system_2 div:last-child{border: none;}
+	p.orange{
+		font-weight: bold;
+	}
+	/*    南大隅町の文化と自然    */
+	.waterfall{
+		background-attachment: inherit;
+		height: 250px;
+	}
+	.spot_font{
+		width: 80%;
+		padding: 5%;
+		margin: 0 5%;
+	}
+	.spot_font .left{
+		width: 50%;
+	}
+	.spot_font .right{
+		width: 100%;
+	}
+	.spot{
+		display: block;
+	}
+	.spot div{
+		width: 90%;
+		margin: 0 5% 20px;
+		border-radius: 10px;
+	}
+	/*    お問い合わせ   */
+	.contact{
+		padding-bottom: 15px;
+	}
+	/*    footer    */
+	.foot .font2{
+		width: 90%;
+		margin: 1em 5%;
+	}
+	.case_font_box.mtop160 {
+		margin-top: -30px;
+	}
+	.fruits_box .fruits.lf60 {
+		top: -15px;
+	}
+	.fruits {
+		top: -20px;
+	}
+}
+/*=============スマートフォン用css(400px以下)====================*/
+@media screen and (max-width: 400px){
+	.case_img{
+		width: calc(100% - 30px);
+		padding: 15px;
+	}
+	.case_font_box{
+		margin-top: -20px;
+	}
+	.fruits_box .fruits.lf60 {
+		left: 70%;
+	}
+	.case_font_box.mtop160 {
+		margin-top: -26px;
+	}
+}
+/*=============スマートフォン用css(361px以下)====================*/
+@media screen and (max-width: 361px){
+	.case_box{
+		width: calc(100% - 30px);
+		padding: 0 15px;
+	}
+	.case_font_box{
+		margin-top: -19%;
+	}
+}
+/*=============スマートフォン用css(321px以下)====================*/
+@media screen and (max-width: 321px) {
+	.br320::before {
+		content: "\A" ;
+		white-space: pre ;
+	}
+	.case_font_box{
+		margin-top: -13%;
+	}
+}
